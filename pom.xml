@@ -4,6 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>service</module>
+        <module>model</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -119,6 +120,17 @@
             <artifactId>hutool-all</artifactId>
             <version>4.1.13</version>
         </dependency>
+
+        <!-- google login -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -138,6 +150,7 @@
                     <include>**/*.yml</include>
                     <include>**/*.xml</include>
                     <include>**/*.properties</include>
+                    <include>**/*.html</include>
                 </includes>
             </resource>
         </resources>
