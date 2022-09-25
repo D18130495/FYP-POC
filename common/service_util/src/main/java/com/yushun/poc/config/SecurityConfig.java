@@ -26,7 +26,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests()
+        http.formLogin()
+                .loginPage("/level1")
+                .and()
+                .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/oauth2/**").permitAll()
                 .antMatchers("/level1/**").permitAll()
@@ -42,9 +45,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .logoutSuccessHandler(oAuth2LogoutSuccessHandler)
                     .invalidateHttpSession(true)
                     .clearAuthentication(true)
-                    .permitAll();
-
-        http.formLogin();
+                    .permitAll()
+                .and()
+                .csrf().disable();
     }
 
 //    @Override
